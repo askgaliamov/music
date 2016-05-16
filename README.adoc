@@ -1,0 +1,29 @@
+## Requirements
+Java 8, Docker, docker-machine, gradle
+
+## Run
+```
+./gradlew bootRun
+```
+
+## Test
+```
+./gradlew test
+```
+Integration tests:
+```
+./gradlew integrationTest
+```
+
+## API
+```
+Upload data:
+curl -F file=@/some/file/on/your/local/disk http://localhost:8080/upload/google
+curl -F file=@/some/file/on/your/local/disk http://localhost:8080/upload/spotify
+
+Reports:
+curl -X GET http://localhost:8080/report?page=0&size=10
+curl -X GET http://localhost:8080/report/day/2015-06-15?page=0&size=10
+curl -X GET http://localhost:8080/report/product/5055876808071?page=0&size=10
+curl -X GET http://localhost:8080/report/asset/NLRD51436454?page=0&size=10
+```

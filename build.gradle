@@ -1,0 +1,91 @@
+
+def DOCKERCOMPOSE = 'docker-compose'
+
+def DB_ENV = ['IntegrationDB']
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    baseName = 'music'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    integrationTest {
+        groovy {
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+            srcDir file('src/integration-test/groovy')
+        }
+        resources.srcDir file('src/integration-test/resources')
+    }
+}
+
+configurations {
+    integrationTestCompile.extendsFrom testCompile
+    integrationTestRuntime.extendsFrom testRuntime
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb:1.3.5.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-jetty:1.3.5.RELEASE")
+    compile("org.hibernate:hibernate-validator:5.2.4.Final")
+    compile "org.codehaus.groovy:groovy-all:2.4.1"
+    compile("joda-time:joda-time:2.9.3")
+    compile("com.opencsv:opencsv:3.7")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:1.3.5.RELEASE")
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+    testCompile("junit:junit")
+
+    integrationTestCompile 'org.spockframework:spock-spring:1.0-groovy-2.3'
+    integrationTestCompile 'org.springframework:spring-test'
+}
+
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+}
+
+task integrationTest(type: Test) {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+    include '**/*Spec.*'
+    outputs.upToDateWhen { false }
+}
+
+DB_ENV.each { envName ->
+    tasks.create(name: "start$envName", type: Exec) {
+        commandLine DOCKERCOMPOSE, 'up', '-d'
+    }
+    tasks.create(name: "stop$envName") << {
+        exec { commandLine DOCKERCOMPOSE, 'down'}
+    }
+}
+
+integrationTest.dependsOn startIntegrationDB
+integrationTest.finalizedBy stopIntegrationDB
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}

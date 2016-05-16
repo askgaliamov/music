@@ -1,0 +1,12 @@
+Partner_Name,Region,Start_Date,End_Date,Partner_Album_Sales,Partner_Track_Sales,Partner_Free_Albums,Partner_Free_Tracks,Partner_Refund_Amount,Partner_Revenue,Partner_Revenue_Currency,Partner_Revenue_Invoiced,Partner_Revenue_Invoiced_Currency
+Independent IP,NL,2015-03-23,2015-03-23,0,3,0,0,0.0000,2.5500,EUR,,
+Start_Date,End_Date,UPC,GRID,ISRC,Custom_ID_1,Custom_ID_2,Custom_ID_3,Custom_ID_4,Google_ID,Product_Title,Track_Title,Content_Provider,Label,Device_Type,Product_Type,Interaction_Type,Count
+2015-03-23,2015-03-23,8718403168525,,NLA9F1300002,fuga:64112691,,,,,"Wicked Jazz Connection featuring Bootie Brown Of The Pharcyde, Wicked Jazz Connection",Patience,IIP-DDS,Wicked Jazz Sounds Recodings,MOBILE,TRACK,DOWNLOAD,9728
+2015-03-23,2015-03-23,8718857004400,,AUNV01400153,fuga:83308631,,,,,Timmy Trumpet And Savage,Freaks (Original Mix),IIP-DDS,PM Recordings,MOBILE,TRACK,STREAM,2286
+2015-03-23,2015-03-23,5055876808071,,NLRD51436454,fuga:70104767,,,,,Bizzy Bone,Army On Deck,IIP-DDS,Rapier Music,MOBILE,TRACK,DOWNLOAD,2025
+2015-03-23,2015-03-23,,,NLRD51436454,fuga:70104767,,,,,Bizzy Bone,Army On Deck,IIP-DDS,Rapier Music,MOBILE,TRACK,DOWNLOAD,2025
+2015-03-23,2015-03-23,5055876808071,,,fuga:70104767,,,,,Bizzy Bone,Army On Deck,IIP-DDS,Rapier Music,MOBILE,TRACK,DOWNLOAD,2025
+2015-03-23,2015-03-23,5055876808071,,NLRD51436454,fuga:70104767,,,,,Bizzy Bone,Army On Deck,IIP-DDS,Rapier Music,MOBILE,TRACK,DOWNLOAD,
+2015-03-23,2015-03-23,5055876808071,,NLRD51436454,fuga:70104767,,,,,Bizzy Bone,Army On Deck,IIP-DDS,Rapier Music,MOBILE,TRACK,,2025
+2015-03-23,2015-03-23,5055876808071,,NLRD51436454,fuga:70104767,,,,,Bizzy Bone,Army On Deck,IIP-DDS,Rapier Music,MOBILE,TRACK,DOWNLOA,2025
+2015-03-23,2015-03-23,5055876808071,,NLRD51436454,fuga:70104767,,,,,Bizzy Bone,Army On Deck,IIP-DDS,Rapier Music,MOBILE,TRACK,STREA,2025
